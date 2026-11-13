@@ -1,0 +1,63 @@
+{
+  "name": "ayinbox",
+  "version": "0.1.0",
+  "description": "Official TypeScript SDK for the AY Inbox REST API",
+  "license": "MIT",
+  "author": "AY Inbox <team@ayinbox.com>",
+  "homepage": "https://docs.ayinbox.com/api/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayinbox/ayinbox-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ayinbox/ayinbox-js/issues"
+  },
+  "keywords": [
+    "ayinbox",
+    "ay inbox",
+    "cold email",
+    "email",
+    "api",
+    "sdk"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit -p tsconfig.json && node scripts/check-version.mjs",
+    "test": "vitest run",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  }
+}
